@@ -4,7 +4,7 @@ package ec.edu.uce.proyectobanco.dominio;
  *
  * @author Zhiimmer
  */
-public class Director extends Gerente {
+public class Director extends Manager {
 
     protected double comision;
 
@@ -14,7 +14,7 @@ public class Director extends Gerente {
      * @param gerente
      * @param empleado
      */
-    public Director(Director director, Gerente gerente, Empleado empleado) {
+    public Director(Director director, Manager gerente, Empleado empleado) {
         super(gerente, empleado);
         this.comision = director.comision;
     }
