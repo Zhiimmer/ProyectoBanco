@@ -6,13 +6,10 @@ package ec.edu.uce.proyectobanco.dominio;
  */
 public class Impuesto {
 
-    /**
-     * Atributos
-     */
     private double tasa;
- 
+    
     /**
-     * 
+     * Constructor de la clase Impuesto
      */
     public Impuesto() {
         this.tasa = 0.5;
@@ -52,7 +49,7 @@ public class Impuesto {
     }
     
     /**
-     * 
+     * Método donde calculamos impuesto de nuestros empleados
      * @param tasa
      * @param salario
      * @return 

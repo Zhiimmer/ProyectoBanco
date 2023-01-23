@@ -1,5 +1,6 @@
 package ec.edu.uce.proyectobanco.dominio;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -12,41 +13,29 @@ public class Empleado {
     protected String nombre;
     protected String apellido;
     protected String cargo;
-    protected double salario;
-    protected Date fechaNacimiento;
+    protected Double salario;
+    protected LocalDate fechaNacimiento;
 
-    //Constructor de la clase empleado
+    //Constructor con argumentos de la clase empleado
 
-    public Empleado() {
-        this.nombre = "Juan";
-        this.apellido = "Perez";
-        this.cargo = "Cajero";
-        this.fechaNacimiento = new Date (12/2012/22/12/15/00);
-        this.salario= 200.00 ;
-    }
-    
-    public Empleado(String nombre, String apellido, String cargo, Date fechaNacimiento, double salario) {
+    public Empleado(String nombre, String apellido, String cargo, Double salario, LocalDate fechaNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cargo = cargo;
+        this.salario = salario;
         this.fechaNacimiento = fechaNacimiento;
-        this.salario = salario;
     }
-
-    public Empleado(String nombre, String apellido, String cargo, double salario) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.cargo = cargo;
-        this.salario = salario;
-    }
+    //Constructor sin argumentos o predeterminado
     
-    public Empleado(Empleado empleado) {
-        this.nombre = empleado.nombre;
-        this.apellido = empleado.apellido;
-        this.cargo = empleado.cargo;
-        this.fechaNacimiento = empleado.fechaNacimiento;
-        this.salario=empleado.salario;
+    public Empleado() {
+        this.nombre = "Eduardo";
+        this.apellido = "Noboa";
+        this.cargo = "Estudiante de Ing.";
+        this.salario = 1250.0;
+//        LocalDate fechaNacimiento = LocalDate.of(1995, 03, 07);
+        this.fechaNacimiento = LocalDate.of(1995, 03, 07);
     }
+   
     
     //Metodos Getter and Setter
     public String getNombre() {
@@ -74,11 +63,11 @@ public class Empleado {
 
     }
 
-    public Date getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -93,7 +82,7 @@ public class Empleado {
     @Override
     public String toString() {
         //return "Empleado{" + "nombre=" + nombre + ", apellido=" + apellido + ", cargo=" + cargo + ", fechaNacimiento=" + fechaNacimiento + '}';
-        return this.nombre + " " + this.apellido + " " + this.cargo + this.fechaNacimiento + " " + this.salario;
+        return this.nombre + " " + this.apellido + " " + this.cargo + this.salario + " " + this.fechaNacimiento;
     }
 
 }

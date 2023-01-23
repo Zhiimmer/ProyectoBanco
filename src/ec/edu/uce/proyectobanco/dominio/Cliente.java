@@ -1,7 +1,5 @@
 package ec.edu.uce.proyectobanco.dominio;
 
-import java.util.Arrays;
-
 /**
  * @author Eduardo Noboa
  */
@@ -13,6 +11,7 @@ public class Cliente {
     private int idCliente;
     private String nombre;
     private String apellido;
+    private Cuenta[] cuentas;
     private int numCuentas;
 
     /**
@@ -22,10 +21,27 @@ public class Cliente {
         this.idCliente = 00000;
         this.nombre = "XXXX";
         this.apellido = "XXXXX";
+        this.cuentas = new Cuenta[3];
         this.numCuentas = 0;
         //System.out.println("Se esta ejecutando el constructor sin argumentos");
     }
 
+    /**
+     * Creacion del método constructor con argumentos
+     *
+     * @param idCliente nos indica el numero de identificacion del cliente
+     * @param nombre indica el nombre del cliente
+     * @param apellido indica el apellido del cliente
+     * @param numCuentas
+     */
+    public Cliente(int idCliente, String nombre, String apellido, int numCuentas) {
+        this.idCliente = idCliente;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.numCuentas = numCuentas;
+        //System.out.println("Se está ejecutando el constructor con argumentos");
+    }
+    
     /**
      * Creacion del método constructor con argumentos
      *
@@ -37,8 +53,6 @@ public class Cliente {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.numCuentas = numCuentas;
-        //System.out.println("Se está ejecutando el constructor con argumentos");
     }
 
     /**
