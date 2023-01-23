@@ -9,14 +9,17 @@ public class Impuesto {
     private double tasa;
     
     /**
-     * Constructor de la clase Impuesto
+     * Constructor sin argumentos o parámetros
      */
     public Impuesto() {
         this.tasa = 0.5;
     }
 
     /**
-     * 
+     * Constructor con argumentos
+     * Este constructor tiene un parámetro double "tasa",
+     * el cual se utiliza para establecer el valor de la 
+     * tasa de impuesto en la instancia de la clase.
      * @param tasa 
      */
     public Impuesto(double tasa) {
@@ -24,14 +27,17 @@ public class Impuesto {
     }
     
     /**
-     * 
+     * Este constructor se utiliza para establecer el valor de la tasa de
+     * impuesto en la nueva instancia de la clase igual al
+     * valor de la tasa de impuesto en la instancia existente.
      * @param impuesto 
      */
     public Impuesto(Impuesto impuesto) {
         this.tasa = impuesto.tasa;
         
     }
-
+    //Getter and Setter
+    
     /**
      * 
      * @return 
@@ -55,7 +61,7 @@ public class Impuesto {
      * @return 
      */
     public double calcularImpuesto (Double tasa,Double salario){
-        Double aux = tasa*salario ;
+        Double aux = tasa*salario;
         return aux;
         
     }

@@ -1,5 +1,7 @@
 package ec.edu.uce.proyectobanco.dominio;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Zhiimmer
@@ -9,21 +11,29 @@ public class Director extends Manager {
     protected double comision;
 
     /**
-     *
-     * @param director
-     * @param gerente
-     * @param empleado
+     * Constructor sin argumentos de la clase Director
      */
-    public Director(Director director, Manager gerente, Empleado empleado) {
-        super(gerente, empleado);
-        this.comision = director.comision;
+    public Director() {
+        super();
+        this.comision = 25.0;
     }
 
-    public Director(double comision) {
+    /**
+     * Constructor de la clase con argumentos
+     *
+     * @param nombre
+     * @param apellido
+     * @param cargo
+     * @param salario
+     * @param fechaNacimiento
+     * @param departamento
+     * @param comision
+     */
+    public Director(String nombre, String apellido, String cargo, Double salario, LocalDate fechaNacimiento, String departamento, double comision) {
+        super(nombre, apellido, cargo, salario, fechaNacimiento, departamento);
         this.comision = comision;
     }
 
-    //Metodos Getter and Setter
     public double getComision() {
         return comision;
     }

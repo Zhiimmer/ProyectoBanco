@@ -13,12 +13,12 @@ public class Empleado {
     protected String nombre;
     protected String apellido;
     protected String cargo;
-    protected Double salario;
+    protected double salario;
     protected LocalDate fechaNacimiento;
 
     //Constructor con argumentos de la clase empleado
 
-    public Empleado(String nombre, String apellido, String cargo, Double salario, LocalDate fechaNacimiento) {
+    public Empleado(String nombre, String apellido, String cargo, double salario, LocalDate fechaNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cargo = cargo;
