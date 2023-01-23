@@ -1,7 +1,6 @@
 package ec.edu.uce.proyectobanco.dominio;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  *

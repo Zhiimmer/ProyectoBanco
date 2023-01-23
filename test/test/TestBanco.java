@@ -1,6 +1,11 @@
 package test;
 
 import ec.edu.uce.proyectobanco.dominio.Banco;
+import ec.edu.uce.proyectobanco.dominio.Director;
+import ec.edu.uce.proyectobanco.dominio.Empleado;
+import ec.edu.uce.proyectobanco.dominio.Impuesto;
+import ec.edu.uce.proyectobanco.dominio.Manager;
+import java.time.LocalDate;
 
 /**
  * @author Zhiimmer
@@ -28,6 +33,49 @@ public class TestBanco {
         System.out.println("Se va a eliminar el cliente Juanito de la base de datos del Banco");
         cliente.eliminarCliente(1);
         System.out.println(cliente.listarClientes());
+
+        //Ejecución para Empleados de banco con Herencia y demás...
+        LocalDate fecha = LocalDate.of(1995, 03, 07);
+        Empleado e = new Empleado("Eduardo", "Noboa", "Técnico", 1250.0, fecha);
+        Manager m = new Manager("Juan", "Alimaña", "Contador", 650.0, fecha, "Contaduría");
+        Director d = new Director("Julian", "Casablanca", "Supervisor", 750.0, fecha, "Gerencia", 200.0);
+        Impuesto i = new Impuesto();
+        Empleado[] empleados =
+        {
+            e, m, d
+        };
+
+        for (Empleado w : empleados)
+        {
+            if (e instanceof Empleado)
+            {
+                double tasa = 0;
+                double salario = e.getSalario();
+                i.calcularImpuesto(tasa, salario);
+                System.out.println(e.toString() + i.calcularImpuesto(tasa, salario) + "\n");
+
+            }
+            if (m instanceof Manager)
+            {
+                double tasa = 0.10;
+                double salario = m.getSalario();
+                i.calcularImpuesto(tasa, salario);
+                double s = salario + (i.calcularImpuesto(tasa, salario));
+                System.out.println(m.toString() + s + i.calcularImpuesto(tasa, salario) + "\n");
+
+            }
+            if (d instanceof Director)
+            {
+                double tasa = 0.20;
+                double comision = d.getComision();
+                double salario = d.getSalario();
+                double r = i.calcularImpuesto(tasa, salario);
+                double s = salario + (r+comision);
+                System.out.println(d.toString() + s + r + i.calcularImpuesto(tasa, salario) + "\n");
+
+            }
+        }
+
     }
 
 }

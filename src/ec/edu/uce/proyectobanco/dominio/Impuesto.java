@@ -61,8 +61,8 @@ public class Impuesto {
      * @return 
      */
     public double calcularImpuesto (Double tasa,Double salario){
-        Double aux = tasa*salario;
-        return aux;
+//        Double aux = tasa*salario;
+        return tasa*salario;
         
     }
 
