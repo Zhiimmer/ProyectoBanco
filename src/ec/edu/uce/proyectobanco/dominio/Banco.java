@@ -14,14 +14,30 @@ public class Banco {
      */
     private String nombre;
     private String direccion;
-    private Cliente clientes[];
-    private int numClientes;
+
+    private static Cliente clientes[];
+    private static int numClientes;
+
+    static {
+        clientes = new Cliente[3];
+        numClientes = 0;
+
+    }
+
+    private static Empleado empleados[];
+    private static int numEmpleados;
+
+    static {
+        empleados = new Empleado[3];
+        numEmpleados = 0;
+
+    }
 
     public Banco() {
         this.nombre = "Banco Universidad";
         this.direccion = "Av. America";
-        this.clientes = new Cliente[3];
-        this.numClientes = 0;
+        Banco.clientes = new Cliente[3];
+        Banco.numClientes = 0;
 
 //        Banco.empleados = new Empleado[3];
 //        Banco.numEmpleados = 0;
@@ -39,8 +55,8 @@ public class Banco {
     public Banco(String nombre, String direccion, Cliente[] clientes, int numClientes) {
         this.nombre = nombre;
         this.direccion = direccion;
-        this.clientes = clientes;
-        this.numClientes = numClientes;
+        Banco.clientes = clientes;
+        Banco.numClientes = numClientes;
         //System.out.println("En ejecución el constructor con");
     }
 
@@ -54,8 +70,7 @@ public class Banco {
     public void nuevoCliente(int idCliente, String nombre, String apellido) {
 
         //Creacion de un array para si es el caso agregue más clientes
-        if (numClientes == clientes.length)
-        {
+        if (numClientes == clientes.length) {
             Cliente[] aux = new Cliente[clientes.length + 1];
             System.arraycopy(clientes, 0, aux, 0, clientes.length);
             clientes = aux;
@@ -74,10 +89,8 @@ public class Banco {
     public String listarClientes() {
         String lista = "";
 
-        for (Cliente cliente : clientes)
-        {
-            if (cliente != null)
-            {
+        for (Cliente cliente : clientes) {
+            if (cliente != null) {
                 lista += cliente;
             }
 
@@ -96,6 +109,14 @@ public class Banco {
 
     }
 
+//    public Cliente buscarCliente(int idCliente) {
+//    for (int i = 0; i < numClientes; i++) {
+//        if (clientes[i].getIdCliente() == idCliente) {
+//            return clientes[i];
+//        }
+//    }
+//    return null;
+//}
     /**
      * Método para editar clientes
      *
@@ -120,31 +141,25 @@ public class Banco {
         int a = 0;
         Cliente[] aux = clientes;
         clientes = new Cliente[numClientes];
-        if (posicion < aux.length - 1)
-        {
-            if (posicion == aux.length - 1)
-            {
+        if (posicion < aux.length - 1) {
+            if (posicion == aux.length - 1) {
                 System.arraycopy(aux, 0, clientes, 0, numClientes);
 
-            } else
-            {
-                for (int i = 0; i < aux.length; i++)
-                {
-                    if (i != posicion)
-                    {
+            } else {
+                for (int i = 0; i < aux.length; i++) {
+                    if (i != posicion) {
                         clientes[a] = aux[i];
                         a++;
 
                     }
                 }
             }
-        } else
-        {
+        } else {
             System.out.println("No existe la posicion: " + posicion);
 
         }
     }
-    
+
     /*
     public void eliminarCliente(int posicion) {
        numClientes--;
@@ -157,13 +172,34 @@ public class Banco {
             System.arraycopy(aux, posicion + 1, clientes, posicion, numClientes - posicion);
         }
     }
-    */
-
-    /**
-     * Metodos Getter que nos permite mostrar el valor del atributo de la clase Banco
-     *
-     * @return nos regresa los atributos de la clase Banco
      */
+//    /**
+//     * Validar cliente
+//     *
+//     * @param c
+//     * @return
+//     */
+//    public boolean validarCliente(Cliente c) {
+//        boolean resp = false;
+//        for (Cliente cli : clientes) {
+//            if (cli != null) {
+//                if (cli.equals(c)) {
+//                    resp = true;
+//                }
+//            }
+//        }
+//        return resp;
+//    }
+    public boolean validarCliente(Cliente c) {
+        for (int i = 0; i < numClientes; i++) {
+            if (clientes[i].getIdCliente() == c.getIdCliente()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //Getter and Setter 
     public String getNombre() {
         return nombre;
     }
@@ -208,7 +244,7 @@ public class Banco {
      * @param clientes
      */
     public void setClientes(Cliente[] clientes) {
-        this.clientes = clientes;
+        Banco.clientes = clientes;
     }
 
     /**
@@ -217,8 +253,9 @@ public class Banco {
      * @param numClientes
      */
     public void setNumClientes(int numClientes) {
-        this.numClientes = numClientes;
+        Banco.numClientes = numClientes;
     }
+
     /**
      * Método para convertir a String el objeto en Java
      *

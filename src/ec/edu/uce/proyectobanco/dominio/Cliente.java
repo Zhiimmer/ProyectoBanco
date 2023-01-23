@@ -11,8 +11,17 @@ public class Cliente {
     private int idCliente;
     private String nombre;
     private String apellido;
-    private Cuenta[] cuentas;
-    private int numCuentas;
+    private static Cuenta[] cuentas;
+    private static int numCuentas;
+    
+    public static int contador;
+    
+    static {
+        cuentas = new Cuenta[3];
+        numCuentas = 0; 
+        contador = 0;
+    }
+
 
     /**
      * Creacion del método constructor sin argumentos de la clase Cliente
@@ -21,8 +30,8 @@ public class Cliente {
         this.idCliente = 00000;
         this.nombre = "XXXX";
         this.apellido = "XXXXX";
-        this.cuentas = new Cuenta[3];
-        this.numCuentas = 0;
+        Cliente.cuentas = new Cuenta[3];
+        Cliente.numCuentas = 0;
         //System.out.println("Se esta ejecutando el constructor sin argumentos");
     }
 
@@ -38,10 +47,10 @@ public class Cliente {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.numCuentas = numCuentas;
+        Cliente.numCuentas = numCuentas;
         //System.out.println("Se está ejecutando el constructor con argumentos");
     }
-    
+
     /**
      * Creacion del método constructor con argumentos
      *
@@ -54,6 +63,8 @@ public class Cliente {
         this.nombre = nombre;
         this.apellido = apellido;
     }
+    
+    
 
     /**
      * Método Get que nos permite mostrar el valor del atributo IdCliente
@@ -85,7 +96,7 @@ public class Cliente {
     /**
      * Método Get que nos permite mostrar el valor del atributo cuentas
      *
-     * @return nos regresa los atributos de la clase Cliente
+     * @param idCliente
      */
     public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
@@ -99,6 +110,31 @@ public class Cliente {
         this.apellido = apellido;
     }
 
+    public static Cuenta[] getCuentas() {
+        return cuentas;
+    }
+
+    public static void setCuentas(Cuenta[] cuentas) {
+        Cliente.cuentas = cuentas;
+    }
+
+    public static int getNumCuentas() {
+        return numCuentas;
+    }
+
+    public static void setNumCuentas(int numCuentas) {
+        Cliente.numCuentas = numCuentas;
+    }
+
+    public static int getContador() {
+        return contador;
+    }
+
+    public static void setContador(int contador) {
+        Cliente.contador = contador;
+    }
+
+    
     @Override
     public String toString() {
 //        return " idCliente=" + idCliente
@@ -109,6 +145,28 @@ public class Cliente {
         return "idCliente=" + idCliente
                 + ", nombre=" + nombre + ", apellido="
                 + apellido + "\n";
+    }
+
+    /**
+     * Creacion del método "equals"
+     * se utiliza para comparar si dos objetos son iguales.
+     */
+    public boolean equals(Object o) {
+        boolean resp = false;
+        Cliente c = null;
+        if (o != null && o instanceof Cliente) {
+            /*
+            Si ambas condiciones son verdaderas, entonces
+            se asigna el objeto "o" a la variable "c" mediante un casting.
+            */
+            c = (Cliente) o;
+            if (nombre.equals(c.nombre) && apellido.equals(c.apellido)) {
+                resp = true;
+
+            }
+
+        }
+        return resp;
     }
 
 }

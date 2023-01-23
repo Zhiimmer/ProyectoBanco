@@ -1,6 +1,7 @@
 package test;
 
 import ec.edu.uce.proyectobanco.dominio.Banco;
+import ec.edu.uce.proyectobanco.dominio.Cliente;
 import ec.edu.uce.proyectobanco.dominio.Director;
 import ec.edu.uce.proyectobanco.dominio.Empleado;
 import ec.edu.uce.proyectobanco.dominio.Impuesto;
@@ -17,12 +18,13 @@ public class TestBanco {
         /**
          * Creacion del objeto cliente1 de la clase Banco
          */
+        
         Banco cliente = new Banco();
         cliente.nuevoCliente(1, "Luis", "Mora");
         cliente.nuevoCliente(2, "Juanito", "Alimaña");
         cliente.nuevoCliente(3, "Pepito", "Gonzales");
         cliente.nuevoCliente(4, "Benito", "Conejo");
-        cliente.nuevoCliente(4, "Pepito", "Lucas");
+        cliente.nuevoCliente(5, "Pepito", "Lucas");
 
         System.out.println("Se van a imprimir la lista de los clientes: \n");
         System.out.println(cliente.listarClientes());
@@ -34,6 +36,21 @@ public class TestBanco {
         cliente.eliminarCliente(1);
         System.out.println(cliente.listarClientes());
 
+        //Verificacion del Metodo equals
+        Banco b = new Banco();
+        b.nuevoCliente(1, "Pedro", "Pascal");
+        
+        Cliente cli = new Cliente(2, "Pedro", "Pascal");
+        
+//        if (validarCliente (cli)) {
+//            System.out.println("Error" + "El cliente ya existe");
+//            System.out.println(b.buscarCliente(0));
+//            
+//        }else{
+//            b.nuevoCliente(cli);
+//        }
+        
+        
         System.out.println("Impresion de los Empleados del Banco:\n");
 
         //Ejecución para Empleados de banco con Herencia y demás...
@@ -86,5 +103,5 @@ public class TestBanco {
         }
 
     }
-
+    
 }
