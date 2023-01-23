@@ -46,7 +46,7 @@ public class Director extends Manager {
     @Override
     public String toString() {
 //        return "Director{" + "comision=" + comision + '}';
-        return super.toString() + this.comision;
+        return super.toString() + "\nComision: "+this.comision;
 
     }
 

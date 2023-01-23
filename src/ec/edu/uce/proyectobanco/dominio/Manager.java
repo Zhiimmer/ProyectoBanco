@@ -36,7 +36,7 @@ public class Manager extends Empleado {
     public String toString() {
         //return "Empleado{" + "nombre=" + nombre + ", apellido=" + apellido + ", cargo=" + cargo + ", fechaNacimiento=" + fechaNacimiento + '}';
 //        return this.nombre + this.apellido + this.cargo +this.departamento;
-        return super.toString() + " " + this.departamento;
+        return super.toString() + "\nDepartamento: " + this.departamento;
     }
 
 }

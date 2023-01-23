@@ -34,45 +34,54 @@ public class TestBanco {
         cliente.eliminarCliente(1);
         System.out.println(cliente.listarClientes());
 
+        System.out.println("Impresion de los Empleados del Banco:\n");
+
         //Ejecución para Empleados de banco con Herencia y demás...
         LocalDate fecha = LocalDate.of(1995, 03, 07);
         Empleado e = new Empleado("Eduardo", "Noboa", "Técnico", 1250.0, fecha);
-        Manager m = new Manager("Juan", "Alimaña", "Contador", 650.0, fecha, "Contaduría");
-        Director d = new Director("Julian", "Casablanca", "Supervisor", 750.0, fecha, "Gerencia", 200.0);
+        Manager m = new Manager("Juanito", "Alimaña", "Contador", 650.0, fecha, "Contaduría");
+        Director d = new Director("Pedro", "Casablanca", "Supervisor", 750.0, fecha, "Gerencia", 200.0);
         Impuesto i = new Impuesto();
-        Empleado[] empleados =
-        {
-            e, m, d
-        };
+        Empleado[] empleados = {e, m, d};
+        
+        /*
+        se utiliza la variable "contador" para llevar un registro de cuántos objetos se han impreso,
+        y se utiliza la sentencia "break" para detener el ciclo "for" una vez que se hayan impreso
+        todos los objetos del arreglo.
+        */
 
-        for (Empleado w : empleados)
-        {
-            if (e instanceof Empleado)
-            {
+        int contador = 0;
+
+        for (Empleado w : empleados) {
+            if (e instanceof Empleado) {
                 double tasa = 0;
                 double salario = e.getSalario();
                 i.calcularImpuesto(tasa, salario);
-                System.out.println(e.toString() + i.calcularImpuesto(tasa, salario) + "\n");
+                System.out.println(e.toString() + "\nTasa: " + i.calcularImpuesto(tasa, salario) + "\n");
+                contador++;
 
             }
-            if (m instanceof Manager)
-            {
+            if (m instanceof Manager) {
                 double tasa = 0.10;
                 double salario = m.getSalario();
                 i.calcularImpuesto(tasa, salario);
                 double s = salario + (i.calcularImpuesto(tasa, salario));
-                System.out.println(m.toString() + s + i.calcularImpuesto(tasa, salario) + "\n");
+                System.out.println(m.toString() + "\nTasa: " + i.calcularImpuesto(tasa, salario) + "\nSalario: " + s + "\n");
+                contador++;
 
             }
-            if (d instanceof Director)
-            {
+            if (d instanceof Director) {
                 double tasa = 0.20;
                 double comision = d.getComision();
                 double salario = d.getSalario();
                 double r = i.calcularImpuesto(tasa, salario);
-                double s = salario + (r+comision);
-                System.out.println(d.toString() + s + r + i.calcularImpuesto(tasa, salario) + "\n");
+                double s = salario + (r + comision);
+                System.out.println(d.toString() + "\nTasa: " + i.calcularImpuesto(tasa, salario) + "\nSalario: " + s + "\n");
+                contador++;
 
+            }
+            if (contador == empleados.length) {
+                break;
             }
         }
 
