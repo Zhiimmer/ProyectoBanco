@@ -190,13 +190,33 @@ public class Banco {
 //        }
 //        return resp;
 //    }
-    public boolean validarCliente(Cliente c) {
-        for (int i = 0; i < numClientes; i++) {
-            if (clientes[i].getIdCliente() == c.getIdCliente()) {
-                return true;
+    
+    // Meetodo para validar un Cliente de banco
+    
+//    public boolean validarCliente(Cliente c) {
+//        for (int i = 0; i < numClientes; i++) {
+//            if (clientes[i].getIdCliente() == c.getIdCliente()) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+    
+    /**
+     * Método para validar el cliente creado
+     * @param c
+     * @return 
+     */
+    public boolean validarCliente(Cliente c){
+        boolean resp = false;
+        for (Cliente cliente: clientes){
+            if (cliente !=null) {
+                if (cliente.equals(c)) {
+                    resp=true;
+                }
             }
         }
-        return false;
+        return resp;
     }
 
     //Getter and Setter 

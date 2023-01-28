@@ -9,7 +9,7 @@ import ec.edu.uce.proyectobanco.dominio.Manager;
 import java.time.LocalDate;
 
 /**
- * @author Zhiimmer
+ * @author Eduardo N.
  */
 public class TestBanco {
 
