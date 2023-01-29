@@ -129,6 +129,10 @@ public class Banco {
         clientes[posicion] = new Cliente(numClientes, nombre, apellido);
 
     }
+    
+    public void EstoLALA(){
+    
+}
 
     /**
      * Método para eliminar un cliente
