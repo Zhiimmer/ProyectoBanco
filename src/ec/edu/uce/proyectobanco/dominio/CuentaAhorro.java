@@ -13,6 +13,16 @@ public class CuentaAhorro extends Cuenta {
      * Constructor
      *
      * @param saldo
+     */
+    public CuentaAhorro(double saldo) {
+        super(saldo);
+//        this.montoInteres = 0.0;
+    }
+
+    /**
+     * Constructor
+     *
+     * @param saldo
      * @param montoInteres
      */
     public CuentaAhorro(double saldo, double montoInteres) {
@@ -20,14 +30,8 @@ public class CuentaAhorro extends Cuenta {
         this.montoInteres = montoInteres;
     }
 
-    /**
-     * Constructor
-     *
-     * @param saldo
-     */
-    public CuentaAhorro(double saldo) {
-        super(saldo);
-        this.montoInteres = 0.0;
+    public double getMontoInteres() {
+        return montoInteres;
     }
 
     //Metodos
@@ -38,7 +42,7 @@ public class CuentaAhorro extends Cuenta {
             saldo = saldo + monto;
             resp = true;
         } else {
-            System.out.println("No se pudo depositar");
+            System.out.println("No se pudo depositar...");
         }
         return resp;
 
@@ -51,9 +55,42 @@ public class CuentaAhorro extends Cuenta {
             saldo = saldo - monto;
             resp = true;
         } else {
-            System.out.println("No se pudo retirar");
+            System.out.println("No se pudo retirar...");
         }
         return resp;
 
     }
+
+    @Override
+    public boolean equals(Object o) {
+        boolean resultado = false;
+        if (o instanceof CuentaAhorro) {
+            CuentaAhorro e = (CuentaAhorro) o;
+            if (o.equals(e.saldo)) {
+                resultado = true;
+            }
+        }
+        return resultado;
+
+    }
+    
+//@Override
+//    public boolean equals(Object o) {
+//        if (o instanceof CuentaAhorro) {
+//            CuentaAhorro ca = (CuentaAhorro) o;
+//            return this.getSaldo() == ca.getSaldo();
+//        }
+//        return false;
+//    }
+
+    
+    @Override
+    public String toString() {
+        double interes = (super.getSaldo() * montoInteres) / 100;
+        double total = super.getSaldo() + interes;
+        return "\nSaldo: " + super.getSaldo()
+                + "\nInteres: " + interes
+                + "\nSaldo con Intereses: " + total + "\n";
+    }
+
 }
