@@ -53,7 +53,11 @@ public class TestCuenta {
                 case 3 -> {
                     System.out.println("Ingrese el monto a retirar de la cuenta de ahorro: ");
                     double montoRetiro = sc.nextDouble();
-                    System.out.println(ca.retiro(montoRetiro) ? "Retiro realizado exitosamente :)" : "Fondos insuficientes :(");
+//                    System.out.println(ca.retiro(montoRetiro) ? "Retiro realizado exitosamente :)" : "Fondos insuficientes :(");
+                    if (montoRetiro >=0) {
+                        
+                        
+                    }
 
                 }
                 case 4 ->
@@ -72,7 +76,7 @@ public class TestCuenta {
                 case 6 -> {
                     System.out.println("Ingrese el monto a retirar de la Cuenta Corriente: \n");
                     double montoRetiro2 = sc.nextDouble();
-                    System.out.println(cc.retiro(montoRetiro2) ? "Retiro realizado exitosamente :)" : "Fondos insuficientes :(");
+//                    System.out.println(cc.retiro(montoRetiro2) ? "Retiro realizado exitosamente :)" : "Fondos insuficientes :(");
 //                    if (cc.retiro(montoRetiro2)) {
 //                        System.out.println("Retiro realizado exitosamente :)");
 //                    } else {

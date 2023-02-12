@@ -69,7 +69,7 @@ public abstract class  Cuenta {
     
     //Metodo abstractos 
     
-    public abstract boolean retiro(double monto);
+    public abstract boolean retiro(double monto) throws SobregiroException;
 
     public abstract boolean deposito (double monto);
 

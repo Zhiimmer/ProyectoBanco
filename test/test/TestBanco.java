@@ -30,10 +30,10 @@ public class TestBanco {
         System.out.println(cliente.listarClientes());
         System.out.println("Buscar Cliente 4: \n\n" + cliente.buscarCliente(3));
         System.out.println("Se va a editar el Cliente Pepito por Eduardo\n");
-        cliente.editarCliente(2, "Eduardo", "Noboa");
+//        cliente.editarCliente(2, "Eduardo", "Noboa");
         System.out.println(cliente.listarClientes());
         System.out.println("Se va a eliminar el cliente Juanito de la base de datos del Banco");
-        cliente.eliminarCliente(1);
+//        cliente.eliminarCliente(1);
         System.out.println(cliente.listarClientes());
 
         //Verificacion del Metodo equals

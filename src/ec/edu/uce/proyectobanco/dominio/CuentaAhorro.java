@@ -49,13 +49,15 @@ public class CuentaAhorro extends Cuenta {
     }
 
     @Override
-    public boolean retiro(double monto) {
+    public boolean retiro(double monto) throws SobregiroException {
         boolean resp = false;
         if (monto <= saldo) {
             saldo = saldo - monto;
             resp = true;
         } else {
-            System.out.println("No se pudo retirar...");
+
+//            System.out.println("No se pudo retirar...");
+            throw new SobregiroException("Fondos Insuficientes", monto - saldo);
         }
         return resp;
 
@@ -73,7 +75,7 @@ public class CuentaAhorro extends Cuenta {
         return resultado;
 
     }
-    
+
 //@Override
 //    public boolean equals(Object o) {
 //        if (o instanceof CuentaAhorro) {
@@ -82,8 +84,6 @@ public class CuentaAhorro extends Cuenta {
 //        }
 //        return false;
 //    }
-
-    
     @Override
     public String toString() {
         double interes = (super.getSaldo() * montoInteres) / 100;
